@@ -1,0 +1,32 @@
+---
+// Composant Astro pour afficher un graphique d'une espèce de manchot
+// Utilisation : <GraphicSpecies species="Adelie" />
+import penguins from "../assets/penguins.json";
+import PlotFigure from "./PlotFigure.astro";
+
+const { species } = Astro.props;
+const data = penguins.filter((p) => p.species === species);
+---
+
+<section>
+  <h2 class="text-xl font-semibold mb-2">{species}</h2>
+  <PlotFigure
+    options={{
+      height: 400,
+      marks: [
+        // Nuage de points sur les mesures du bec
+        Plot.dot(data, {
+          x: "culmen_length_mm",
+          y: "culmen_depth_mm",
+          stroke: "species",
+          tip: true,
+        }),
+      ],
+      x: { label: "Culmen length (mm)" },
+      y: { label: "Culmen depth (mm)" },
+      color: { legend: false },
+      grid: true,
+    }}
+  />
+</section>
+
