@@ -1,0 +1,40 @@
+---
+// test-iframe.astro : page avec menu et iframe
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <style>
+    iframe {
+      width: 100%;
+      border: 1px solid #ccc;
+      transition: height 0.2s;
+    }
+    nav {
+      margin-bottom: 1em;
+    }
+  </style>
+
+  <nav>
+    <a href="/species/Adelie" target="speciesFrame">Adelie</a> |
+    <a href="/species/Gentoo" target="speciesFrame">Gentoo</a> |
+    <a href="/species/Chinstrap" target="speciesFrame">Chinstrap</a>
+  </nav>
+  <iframe
+    name="speciesFrame"
+    id="speciesFrame"
+    src="/species/Adelie"
+    onload="resizeIframe(this)"
+  ></iframe>
+  <script>
+    function resizeIframe(iframe) {
+      try {
+        iframe.style.height =
+          iframe.contentWindow.document.body.scrollHeight + "px";
+      } catch (e) {
+        iframe.style.height = "600px"; // fallback
+      }
+    }
+  </script>
+</Layout>
+
