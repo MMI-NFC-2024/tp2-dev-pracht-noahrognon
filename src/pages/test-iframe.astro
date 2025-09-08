@@ -1,5 +1,4 @@
 ---
-// test-iframe.astro : page avec menu et iframe
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -15,16 +14,21 @@ import Layout from "../layouts/Layout.astro";
     }
   </style>
 
+  <div class="mb-5 flex flex-wrap gap-3">
+    <a class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-white shadow hover:bg-slate-800" href="/">Retour à l’accueil</a>
+    <a class="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-1.5 text-slate-800 shadow ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Adelie">Voir les espèces</a>
+    <a class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/slider">Voir le slider</a>
+  </div>
   <nav class="mb-6 flex flex-wrap items-center gap-2">
-    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Adelie" target="speciesFrame">Adelie</a>
-    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Gentoo" target="speciesFrame">Gentoo</a>
-    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Chinstrap" target="speciesFrame">Chinstrap</a>
+    <a class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/species/Adelie?embed=1" target="speciesFrame">Adelie</a>
+    <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Gentoo?embed=1" target="speciesFrame">Gentoo</a>
+    <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Chinstrap?embed=1" target="speciesFrame">Chinstrap</a>
   </nav>
   <iframe
     class="rounded-xl border border-slate-200 bg-white shadow-sm"
     name="speciesFrame"
     id="speciesFrame"
-    src="/species/Adelie"
+    src="/species/Adelie?embed=1"
     onload="resizeIframe(this)"
   ></iframe>
   <script>
@@ -39,3 +43,4 @@ import Layout from "../layouts/Layout.astro";
     }
   </script>
 </Layout>
+

@@ -1,18 +1,31 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import GraphicSpecies from "../../components/GraphicSpecies.astro";
+const embed = Astro.url.searchParams.has('embed');
 ---
-
-<Layout>
-  <h1 class="mb-4 text-3xl font-bold tracking-tight">Manchots Adelie</h1>
-  <nav class="mb-5 flex flex-wrap items-center gap-2">
-    <a class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/species/Adelie">Adelie</a>
-    <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Gentoo">Gentoo</a>
-    <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Chinstrap">Chinstrap</a>
-  </nav>
-  <div class="mb-6 flex flex-wrap gap-3">
-    <a class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-white shadow hover:bg-slate-800" href="/test-iframe">Retour à l’iframe</a>
-    <a class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/slider">Retour au slider</a>
+{!embed && (
+  <Layout>
+    <h1 class="mb-4 text-3xl font-bold tracking-tight">Manchots Adelie</h1>
+    <nav class="mb-5 flex flex-wrap items-center gap-2">
+      <a class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/species/Adelie">Adelie</a>
+      <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Gentoo">Gentoo</a>
+      <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Chinstrap">Chinstrap</a>
+    </nav>
+    <div class="mb-6 flex flex-wrap gap-3">
+      <a class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-white shadow hover:bg-slate-800" href="/test-iframe">Retour à l’iframe</a>
+      <a class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/slider">Retour au slider</a>
+    </div>
+    <GraphicSpecies species="Adelie" />
+  </Layout>
+)}
+{embed && (
+  <div class="p-4">
+    <h1 class="mb-4 text-2xl font-bold tracking-tight">Adelie</h1>
+    <nav class="mb-4 flex flex-wrap items-center gap-2">
+      <a class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1.5 text-white shadow hover:bg-indigo-500" href="/species/Adelie?embed=1">Adelie</a>
+      <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Gentoo?embed=1">Gentoo</a>
+      <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Chinstrap?embed=1">Chinstrap</a>
+    </nav>
+    <GraphicSpecies species="Adelie" />
   </div>
-  <GraphicSpecies species="Adelie" />
-</Layout>
+)}
