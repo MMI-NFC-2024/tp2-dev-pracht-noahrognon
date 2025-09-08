@@ -9,8 +9,8 @@ const { species } = Astro.props;
 const data = penguins.filter((p) => p.species === species);
 ---
 
-<section>
-  <h2 class="text-xl font-semibold mb-2">{species}</h2>
+<section class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+  <h2 class="text-xl font-semibold mb-4 text-slate-800">{species}</h2>
   <PlotFigure
     options={{
       height: 400,
