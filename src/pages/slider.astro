@@ -20,9 +20,6 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
       min-width: 350px;
       flex: 0 0 80vw;
       scroll-snap-align: start;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #f9f9f9;
       padding: 1em;
     }
     @media (max-width: 600px) {
@@ -30,24 +27,23 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
     }
   </style>
 
-  <nav>
-    <a href="#adelie">Adelie</a> |
-    <a href="#gentoo">Gentoo</a> |
-    <a href="#chinstrap">Chinstrap</a>
+  <nav class="mb-6 flex flex-wrap items-center gap-2">
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="#adelie">Adelie</a>
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="#gentoo">Gentoo</a>
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="#chinstrap">Chinstrap</a>
   </nav>
   <div class="slider">
-    <section class="slide" id="adelie">
-      <h2>Adelie</h2>
+    <section class="slide rounded-xl border border-slate-200 bg-white shadow-sm" id="adelie">
+      <h2 class="mb-2 text-2xl font-semibold">Adelie</h2>
       <GraphicSpecies species="Adelie" />
     </section>
-    <section class="slide" id="gentoo">
-      <h2>Gentoo</h2>
+    <section class="slide rounded-xl border border-slate-200 bg-white shadow-sm" id="gentoo">
+      <h2 class="mb-2 text-2xl font-semibold">Gentoo</h2>
       <GraphicSpecies species="Gentoo" />
     </section>
-    <section class="slide" id="chinstrap">
-      <h2>Chinstrap</h2>
+    <section class="slide rounded-xl border border-slate-200 bg-white shadow-sm" id="chinstrap">
+      <h2 class="mb-2 text-2xl font-semibold">Chinstrap</h2>
       <GraphicSpecies species="Chinstrap" />
     </section>
   </div>
 </Layout>
-
