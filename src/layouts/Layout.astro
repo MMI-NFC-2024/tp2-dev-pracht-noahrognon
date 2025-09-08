@@ -12,9 +12,30 @@ import "../styles/global.css";
     <title>Astro Basics</title>
   </head>
   <body class="bg-slate-50 text-slate-900">
+    <header class="sticky top-0 z-40 bg-gradient-to-r from-indigo-600 to-sky-500 text-white shadow">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <a href="/" class="flex items-center gap-2 font-semibold tracking-wide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6"><path d="M11.7 2.042a.75.75 0 0 1 .6 0c1.136.49 3.446 1.675 4.8 3.926 1.45 2.4 1.225 5.16.818 6.948a11.4 11.4 0 0 1-2.303 4.92c-.927 1.14-2.025 2.012-3.015 2.614a.75.75 0 0 1-.8 0c-.99-.602-2.088-1.474-3.016-2.615a11.4 11.4 0 0 1-2.302-4.92c-.407-1.788-.632-4.548.818-6.948 1.354-2.25 3.664-3.436 4.8-3.925Z"/></svg>
+          <span>Penguins Explorer</span>
+        </a>
+        <nav class="hidden gap-3 md:flex">
+          <a class="rounded-md px-3 py-1.5 hover:bg-white/10" href="/">Accueil</a>
+          <a class="rounded-md px-3 py-1.5 hover:bg-white/10" href="/species/Adelie">Espèces</a>
+          <a class="rounded-md px-3 py-1.5 hover:bg-white/10" href="/slider">Slider</a>
+          <a class="rounded-md px-3 py-1.5 hover:bg-white/10" href="/test-iframe">Iframe</a>
+        </nav>
+      </div>
+    </header>
+
     <main class="mx-auto max-w-6xl p-6">
       <slot />
     </main>
+
+    <footer class="mt-10 border-t border-slate-200/60 bg-white/60">
+      <div class="mx-auto max-w-6xl px-6 py-6 text-sm text-slate-500">
+        <p>&copy; {new Date().getFullYear()} Penguins Explorer — Observable Plot + Astro.</p>
+      </div>
+    </footer>
   </body>
 </html>
 
