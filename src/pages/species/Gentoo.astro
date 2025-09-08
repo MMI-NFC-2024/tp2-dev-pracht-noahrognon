@@ -19,7 +19,7 @@ const embed = Astro.url.searchParams.has('embed');
   </Layout>
 )}
 {embed && (
-  <Layout minimal={true}>
+  <div class="p-4">
     <h1 class="mb-4 text-2xl font-bold tracking-tight">Gentoo</h1>
     <nav class="mb-4 flex flex-wrap items-center gap-2">
       <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Adelie?embed=1">Adelie</a>
@@ -27,5 +27,5 @@ const embed = Astro.url.searchParams.has('embed');
       <a class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-slate-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50" href="/species/Chinstrap?embed=1">Chinstrap</a>
     </nav>
     <GraphicSpecies species="Gentoo" />
-  </Layout>
+  </div>
 )}
