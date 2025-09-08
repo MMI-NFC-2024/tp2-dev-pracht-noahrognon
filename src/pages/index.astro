@@ -6,6 +6,13 @@ import penguins from "../assets/penguins.json";
 ---
 
 <Layout>
+  <nav class="mb-4">
+    <a href="/species/Adelie">Adelie</a> |
+    <a href="/species/Gentoo">Gentoo</a> |
+    <a href="/species/Chinstrap">Chinstrap</a> |
+    <a href="/test-iframe">Iframe</a> |
+    <a href="/slider">Slider</a>
+  </nav>
   <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
   <PlotFigure
     options={{
@@ -13,9 +20,10 @@ import penguins from "../assets/penguins.json";
         Plot.dot(penguins, {
           x: "culmen_length_mm",
           y: "culmen_depth_mm",
-          stroke: "species",
+          stroke: "species",  
         }),
       ],
     }}
   />
-</Layout>
+</Layout>   
+
