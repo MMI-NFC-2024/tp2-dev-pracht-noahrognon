@@ -7,20 +7,21 @@ import Layout from "../layouts/Layout.astro";
   <style>
     iframe {
       width: 100%;
-      border: 1px solid #ccc;
       transition: height 0.2s;
+      min-height: 85vh; /* grand par défaut sur PC */
     }
-    nav {
-      margin-bottom: 1em;
+    @media (max-width: 768px) {
+      iframe { min-height: 70vh; }
     }
   </style>
 
-  <nav>
-    <a href="/species/Adelie" target="speciesFrame">Adelie</a> |
-    <a href="/species/Gentoo" target="speciesFrame">Gentoo</a> |
-    <a href="/species/Chinstrap" target="speciesFrame">Chinstrap</a>
+  <nav class="mb-6 flex flex-wrap items-center gap-2">
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Adelie" target="speciesFrame">Adelie</a>
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Gentoo" target="speciesFrame">Gentoo</a>
+    <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 shadow-sm hover:bg-slate-100 hover:text-slate-900" href="/species/Chinstrap" target="speciesFrame">Chinstrap</a>
   </nav>
   <iframe
+    class="rounded-xl border border-slate-200 bg-white shadow-sm"
     name="speciesFrame"
     id="speciesFrame"
     src="/species/Adelie"
@@ -28,13 +29,13 @@ import Layout from "../layouts/Layout.astro";
   ></iframe>
   <script>
     function resizeIframe(iframe) {
+      const min = Math.round(window.innerHeight * 0.85);
       try {
-        iframe.style.height =
-          iframe.contentWindow.document.body.scrollHeight + "px";
+        const h = iframe.contentWindow.document.body.scrollHeight;
+        iframe.style.height = Math.max(min, h) + "px";
       } catch (e) {
-        iframe.style.height = "600px"; // fallback
+        iframe.style.height = min + "px"; // fallback PC
       }
     }
   </script>
 </Layout>
-
